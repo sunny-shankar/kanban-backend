@@ -43,6 +43,11 @@ const login = async (req, res) => {
         });
       }
     }
+    return res.status(401).send({
+      success: false,
+      message: "unauthorized",
+      data: {},
+    });
   } catch (err) {
     console.log({ error: err.message });
     res.json({ success: false, message: err.message, data: {} });
